@@ -20,8 +20,13 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 });
 
-app.post('/', (req,res)=>{
-    res.send(redisOptions)
+app.post('/redis-add', (req,res)=>{
+    client.setex('order_1234', 1, '', (err ,res)=>{
+        if(err)
+            return res.status(400).send(err);
+        else
+            return res.send(res)
+    })
 })
 
 app.listen(2376, () => console.log('Example app listening on port 3000!'));
