@@ -21,12 +21,21 @@ app.get('/', (req, res) => {
 });
 
 app.post('/redis-add', (req,res)=>{
-    client.setex('order_1234', 1, '', (err ,res)=>{
-        if(err)
-            return res.status(400).send(err);
-        else
-            return res.send(res)
-    })
+    console.log('huh?')
+
+    try{
+        client.setex('order_1234', 1, '', (err ,result)=>{
+            console.log('huh?')
+            if(err)
+                return res.status(400).send(err);
+            else
+                return res.send(result)
+        })
+    }
+    catch(err){
+        res.status(400).send(err)
+    }
+
 })
 
 app.listen(2376, () => console.log('Example app listening on port 3000!'));
