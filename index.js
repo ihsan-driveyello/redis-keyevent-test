@@ -15,7 +15,10 @@ client.once('connect', function () {
 
 client.on('error', (err)=>console.log(err));
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', (req, res) => {
+    console.log('yo dude');
+    res.send('Hello World!')
+});
 
 app.post('/', (req,res)=>{
     res.send(redisOptions)
