@@ -24,5 +24,5 @@ app.post('/', (req,res)=>{
     res.send(redisOptions)
 })
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.listen(2376, () => console.log('Example app listening on port 3000!'));
 
